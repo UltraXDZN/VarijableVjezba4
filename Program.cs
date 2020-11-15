@@ -20,22 +20,26 @@ namespace VarijableVjezba4
 
             for (int i = 0; i < znakovi.Length; i++)
             {
+                sVelika[i] = znakovi[i];
+                sMala[i] = znakovi[i];
                 if (!char.IsNumber(znakovi[i]))
                 {
                     #region velika
-                    if (char.IsUpper(znakovi[i]))
+                    
+                    if (char.IsLower(znakovi[i]))
                     {
-                        sVelika[i] = znakovi[i];
+                        sVelika[i] = char.ToUpper(znakovi[i]);
                     }
-                    else sVelika.Where(val => val != znakovi[i]).ToArray();
+                    
                     #endregion
 
                     #region mala
-                    if (char.IsLower(znakovi[i]))
+                    
+                    if (char.IsUpper(znakovi[i]))
                     {
-                        sMala[i] = znakovi[i];
+                        sMala[i] = char.ToLower(znakovi[i]);
                     }
-                    else sMala.Where(val => val != znakovi[i]).ToArray();
+                    
                     #endregion
                 }
                 
